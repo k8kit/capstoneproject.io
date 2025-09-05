@@ -73,8 +73,8 @@ function sendReferenceEmail($email, $applications) {
         $mail->isSMTP();
         $mail->Host       = 'smtp.gmail.com'; // Configure your SMTP server
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'keithdaniellereyes@gmail.com'; // Configure your email
-        $mail->Password   = 'ggnr drbv zpfi pjik';    // Configure your app password
+        $mail->Username   = ''; // Configure your email
+        $mail->Password   = '';    // Configure your app password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
 
@@ -181,4 +181,5 @@ function getEmailStatusClass($status) {
     
     return $statusClasses[$status] ?? ['bg' => '#e9ecef', 'color' => '#495057'];
 }
+
 ?>
