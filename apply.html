@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply - AICS Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-heart-fill me-2"></i>AICS Portal
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="programs.html">Programs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="apply.html">Apply Now</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="track.html">Track Application</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="bg-primary text-white py-4">
+        <div class="container">
+            <h1 class="h3 mb-0">Apply for AICS Assistance</h1>
+        </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="progress-wrapper">
+                    <div class="progress mb-4" style="height: 8px;">
+                        <div class="progress-bar bg-success" id="progress-bar" role="progressbar" style="width: 25%"></div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="step-indicator active" data-step="1">
+                            <div class="step-circle">1</div>
+                            <small>Choose Service</small>
+                        </div>
+                        <div class="step-indicator" data-step="2">
+                            <div class="step-circle">2</div>
+                            <small>Personal Details</small>
+                        </div>
+                        <div class="step-indicator" data-step="3">
+                            <div class="step-circle">3</div>
+                            <small>Upload Documents</small>
+                        </div>
+                        <div class="step-indicator" data-step="4">
+                            <div class="step-circle">4</div>
+                            <small>Review & Submit</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Form -->
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <form id="application-form" class="needs-validation" novalidate>
+                    <!-- Step 1: Choose Service -->
+                    <div class="step-content active" id="step-1">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <h4 class="card-title text-primary mb-4">
+                                    <i class="bi bi-clipboard-check me-2"></i>Step 1: Choose a Service/Program
+                                </h4>
+                                <div id="service-options" class="row g-3">
+                                    <!-- Services will be loaded dynamically -->
+                                </div>
+                                <div class="text-end mt-4">
+                                    <button type="button" class="btn btn-primary" id="next-step-1" disabled>
+                                        Next <i class="bi bi-arrow-right ms-1"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Personal Details -->
+                    <div class="step-content" id="step-2">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <h4 class="card-title text-primary mb-4">
+                                    <i class="bi bi-person-fill me-2"></i>Step 2: Personal Details
+                                </h4>
+                                
+                                <!-- Client Information -->
+                                <div class="section-header mb-3">
+                                    <h5 class="text-success">I. Client's Identifying Information</h5>
+                                </div>
+                                
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <label class="form-label">Last Name *</label>
+                                        <input type="text" class="form-control" name="client_last_name" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">First Name *</label>
+                                        <input type="text" class="form-control" name="client_first_name" required>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label">Middle Name</label>
+                                        <input type="text" class="form-control" name="client_middle_name">
+                                    </div>
+                                    <div class="col-md-1">
+                                        <label class="form-label">Ext.</label>
+                                        <input type="text" class="form-control" name="client_extension">
+                                    </div>
+                                </div>
+
+                                <div class="row g-3 mt-2">
+                                    <div class="col-md-3">
+                                        <label class="form-label">Sex *</label>
+                                        <select class="form-select" name="client_sex" required>
+                                            <option value="">Choose...</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label">Date of Birth *</label>
+                                        <input type="date" class="form-control" name="client_dob" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Place of Birth *</label>
+                                        <input type="text" class="form-control" name="client_place_of_birth" required>
+                                    </div>
+                                </div>
+
+                                <div class="row g-3 mt-2">
+                                    <div class="col-12">
+                                        <label class="form-label">Present Address *</label>
+                                        <textarea class="form-control" rows="3" name="client_address" placeholder="Complete address including Region, Province, City/Municipality, District, Barangay, No./Street/Purok" required></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="row g-3 mt-2">
+                                    <div class="col-md-4">
+                                        <label class="form-label">Relationship to Beneficiary *</label>
+                                        <select class="form-select" name="relationship_to_beneficiary" required>
+                                            <option value="">Choose...</option>
+                                            <option value="Self">Self</option>
+                                            <option value="Parent">Parent</option>
+                                            <option value="Child">Child</option>
+                                            <option value="Spouse">Spouse</option>
+                                            <option value="Sibling">Sibling</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">Civil Status *</label>
+                                        <select class="form-select" name="civil_status" required>
+                                            <option value="">Choose...</option>
+                                            <option value="Single">Single</option>
+                                            <option value="Married">Married</option>
+                                            <option value="Widowed">Widowed</option>
+                                            <option value="Separated">Separated</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">Religion</label>
+                                        <input type="text" class="form-control" name="religion">
+                                    </div>
+                                </div>
+
+                                <div class="row g-3 mt-2">
+                                    <div class="col-md-4">
+                                        <label class="form-label">Nationality</label>
+                                        <input type="text" class="form-control" name="nationality" value="Filipino">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">Highest Educational Attainment</label>
+                                        <input type="text" class="form-control" name="education">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">Skills/Occupation</label>
+                                        <input type="text" class="form-control" name="occupation">
+                                    </div>
+                                </div>
+
+                                <div class="row g-3 mt-2">
+                                    <div class="col-md-4">
+                                        <label class="form-label">Estimated Monthly Income (₱)</label>
+                                        <input type="number" class="form-control" name="monthly_income" step="0.01">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">PhilHealth No.</label>
+                                        <input type="text" class="form-control" name="philhealth_no">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">Email Address *</label>
+                                        <input type="email" class="form-control" name="email" required>
+                                    </div>
+                                </div>
+
+                                <div class="row g-3 mt-2">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Mode of Admission</label>
+                                        <select class="form-select" name="admission_mode">
+                                            <option value="Walk-in">Walk-in</option>
+                                            <option value="Referral">Referral</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Referring Party & Contact</label>
+                                        <input type="text" class="form-control" name="referring_party" placeholder="Name and contact number">
+                                    </div>
+                                </div>
+
+                                <hr class="my-4">
+
+                                <!-- Beneficiary Information -->
+                                <div class="section-header mb-3">
+                                    <h5 class="text-success">II. Beneficiary Identifying Information</h5>
+                                </div>
+
+                                <!-- Category Checkboxes -->
+                                <div class="mb-3">
+                                    <label class="form-label">Category *</label>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="category" value="Informal Settler Family" id="category1">
+                                                <label class="form-check-label" for="category1">Informal Settler Family</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="category" value="Disadvantaged Individual" id="category2">
+                                                <label class="form-check-label" for="category2">Disadvantaged Individual</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="category" value="Indigenous People" id="category3">
+                                                <label class="form-check-label" for="category3">Indigenous People</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="category" value="Pantawid Beneficiary" id="category4">
+                                                <label class="form-check-label" for="category4">Pantawid Beneficiary</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-2" id="pantawid-id" style="display: none;">
+                                        <input type="text" class="form-control" name="category_id_no" placeholder="Pantawid ID Number">
+                                    </div>
+                                </div>
+
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <label class="form-label">Beneficiary Last Name *</label>
+                                        <input type="text" class="form-control" name="beneficiary_last_name" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">Beneficiary First Name *</label>
+                                        <input type="text" class="form-control" name="beneficiary_first_name" required>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label">Middle Name</label>
+                                        <input type="text" class="form-control" name="beneficiary_middle_name">
+                                    </div>
+                                    <div class="col-md-1">
+                                        <label class="form-label">Ext.</label>
+                                        <input type="text" class="form-control" name="beneficiary_extension">
+                                    </div>
+                                </div>
+
+                                <div class="row g-3 mt-2">
+                                    <div class="col-md-3">
+                                        <label class="form-label">Sex *</label>
+                                        <select class="form-select" name="beneficiary_sex" required>
+                                            <option value="">Choose...</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label">Date of Birth *</label>
+                                        <input type="date" class="form-control" name="beneficiary_dob" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Place of Birth *</label>
+                                        <input type="text" class="form-control" name="beneficiary_place_of_birth" required>
+                                    </div>
+                                </div>
+
+                                <div class="row g-3 mt-2">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Present Address *</label>
+                                        <textarea class="form-control" rows="3" name="beneficiary_address" required></textarea>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Civil Status *</label>
+                                        <select class="form-select" name="beneficiary_civil_status" required>
+                                            <option value="">Choose...</option>
+                                            <option value="Single">Single</option>
+                                            <option value="Married">Married</option>
+                                            <option value="Widowed">Widowed</option>
+                                            <option value="Separated">Separated</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <hr class="my-4">
+
+                                <!-- Family Composition -->
+                                <div class="section-header mb-3">
+                                    <h5 class="text-success">III. Beneficiary's Family Composition</h5>
+                                </div>
+                                
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="family-table">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Full Name</th>
+                                                <th>Sex</th>
+                                                <th>Birthdate</th>
+                                                <th>Civil Status</th>
+                                                <th>Relationship</th>
+                                                <th>Education</th>
+                                                <th>Occupation</th>
+                                                <th>Monthly Income</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="family-tbody">
+                                            <!-- Family members will be added dynamically -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                                <button type="button" class="btn btn-success mb-3" id="add-family-member">
+                                    <i class="bi bi-plus-circle me-2"></i>Add Family Member
+                                </button>
+
+                                <div class="d-flex justify-content-between mt-4">
+                                    <button type="button" class="btn btn-secondary" id="prev-step-2">
+                                        <i class="bi bi-arrow-left me-1"></i>Previous
+                                    </button>
+                                    <button type="button" class="btn btn-primary" id="next-step-2">
+                                        Next <i class="bi bi-arrow-right ms-1"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Upload Requirements -->
+                    <div class="step-content" id="step-3">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <h4 class="card-title text-primary mb-4">
+                                    <i class="bi bi-cloud-upload me-2"></i>Step 3: Upload Requirements
+                                </h4>
+                                
+                                <div class="alert alert-info">
+                                    <i class="bi bi-info-circle me-2"></i>
+                                    Please upload the following documents based on your selected service:
+                                </div>
+                                
+                                <div id="requirements-list" class="mb-4">
+                                    <!-- Requirements will be loaded based on selected service -->
+                                </div>
+
+                                <div class="upload-area border border-dashed border-primary rounded p-4 text-center mb-4">
+                                    <i class="bi bi-cloud-upload display-4 text-primary mb-3"></i>
+                                    <h5>Drop files here or click to browse</h5>
+                                    <p class="text-muted">Supported formats: PDF, JPG, PNG (Max 10MB per file)</p>
+                                    <input type="file" id="file-upload" multiple accept=".pdf,.jpg,.jpeg,.png" style="display: none;">
+                                    <button type="button" class="btn btn-outline-primary" onclick="document.getElementById('file-upload').click()">
+                                        <i class="bi bi-folder2-open me-2"></i>Browse Files
+                                    </button>
+                                </div>
+
+                                <div id="uploaded-files" class="row g-3">
+                                    <!-- Uploaded files will appear here -->
+                                </div>
+
+                                <div class="d-flex justify-content-between mt-4">
+                                    <button type="button" class="btn btn-secondary" id="prev-step-3">
+                                        <i class="bi bi-arrow-left me-1"></i>Previous
+                                    </button>
+                                    <button type="button" class="btn btn-primary" id="next-step-3">
+                                        Next <i class="bi bi-arrow-right ms-1"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Verification -->
+                    <div class="step-content" id="step-4">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <h4 class="card-title text-primary mb-4">
+                                    <i class="bi bi-check-circle me-2"></i>Step 4: Review & Submit
+                                </h4>
+                                
+                                <div id="review-content">
+                                    <!-- Review content will be populated dynamically -->
+                                </div>
+
+                                <div class="form-check mt-4">
+                                    <input class="form-check-input" type="checkbox" id="terms-agreement" required>
+                                    <label class="form-check-label" for="terms-agreement">
+                                        I certify that all information provided is true and correct. I understand that providing false information may result in the denial of assistance.
+                                    </label>
+                                </div>
+
+                                <div class="d-flex justify-content-between mt-4">
+                                    <button type="button" class="btn btn-secondary" id="prev-step-4">
+                                        <i class="bi bi-arrow-left me-1"></i>Previous
+                                    </button>
+                                    <button type="submit" class="btn btn-success btn-lg" id="submit-application">
+                                        <i class="bi bi-send me-2"></i>Submit Application
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title">
+                        <i class="bi bi-check-circle me-2"></i>Application Submitted Successfully
+                    </h5>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="mb-3">
+                        <i class="bi bi-check-circle-fill text-success" style="font-size: 4rem;"></i>
+                    </div>
+                    <h5>Your application has been submitted!</h5>
+                    <p>Your reference number is:</p>
+                    <div class="alert alert-info">
+                        <h4 class="mb-0" id="reference-number"></h4>
+                    </div>
+                    <p class="text-muted">Please save this reference number for tracking your application.</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="track.html" class="btn btn-primary">Track Application</a>
+                    <a href="index.html" class="btn btn-secondary">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2025 AICS Portal. All rights reserved. | Providing assistance to those in need.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/application.js"></script>
+    <script type src="main.js"></script>
+    
+</html>
